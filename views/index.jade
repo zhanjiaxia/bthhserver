@@ -1,0 +1,27 @@
+extends layout
+
+block content
+  h1= title
+  div.search-content
+    from(onsubmit="return false")
+      input(type="text", name="content", id="search-input-text")
+      button(id="search-submit") 搜索
+  script(type="text/javascript", src="/javascripts/ajax.js")
+  script(type='text/javascript').
+    document.getElementById('search-submit').onclick = function () {
+      var options = {
+        url: '...',
+        query: { content: document.getElementById('search-input-text').value }
+      }
+      var ajax = new Ajax(options)
+      ajax
+      .success(function (responseText, status) {
+        console.log(responseText, status)
+        alert('status: ' + status)
+      })
+      .error(function (responseText, status) {
+        console.log(responseText, status)
+        alert('status: ' + status)
+      })
+    }
+
