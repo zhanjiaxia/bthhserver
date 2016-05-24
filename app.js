@@ -1,5 +1,5 @@
 var mongoose = require('mongoose')
-mongoose.connect('mongodb://127.0.0.1:27017/bt-site')
+mongoose.connect('mongodb://120.76.181.157:27017/bt-site')
 require('./models')
 
 var express = require('express');
@@ -11,7 +11,7 @@ var bodyParser = require('body-parser');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
-var async = require('./routes/async')
+var asyncBT = require('./routes/api/bt')
 
 var app = express();
 
@@ -30,7 +30,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
 app.use('/users', users);
-app.use('/async', async)
+app.use('/api/bthh', asyncBT)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
