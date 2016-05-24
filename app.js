@@ -1,5 +1,5 @@
 var mongoose = require('mongoose')
-mongoose.connect('mongodb://120.76.181.157:27017/bt-site')
+mongoose.connect('mongodb://127.0.0.1/bt-site')
 require('./models')
 
 var express = require('express');
